@@ -25,28 +25,7 @@ clean-targets:
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
-models:
-  +transient: false
-  SalesDataMart:
-    # Config indicated by + and applies to all files under models/SalesDataMart/
-    bind: false
-    RAW:
-      +materialized: table
-      +schema: RAW
-      +tags: raw
-      +depends_on:
-        - seed.customers
-        - seed.sales
-        - seed.stores
-        - seed.time
-    STAGE:
-      +materialized: table
-      +schema: STAGE
-      +tags: stage
-    TARGET:
-      +materialized: table
-      +schema: TARGET
-      +tags: target
+
 
 seeds:
   SalesDataMart:
