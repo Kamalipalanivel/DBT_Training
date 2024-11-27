@@ -1,8 +1,6 @@
-{{ config(
-    schema=generate_schema_name('RAW',node)
-) }}
+
 with raw_products as 
 (    
-    {{src_product_json()}}
+    select * from {{source('SalesDataMart','products')}}
 )
 select * from raw_products

@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: SalesDataMart
+    database: DBT_CLOUD 
+    schema: RAW
+    tables:
+      - name: sales
+        freshness:
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: customers
+        freshness: # default freshness
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: stores
+        freshness: # default freshness
+          warn_after: {count: 1, period: hour}
+      - name: time
+        freshness: # default freshness
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: products
+        freshness: # default freshness
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
